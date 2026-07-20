@@ -1,407 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hari Lakkakula | Senior Software Engineer</title>
-    <style>
-        :root {
-            --bg-color: #fafafa;
-            --text-color: #171717;
-            --text-muted: #737373;
-            --accent-color: #262626;
-            --border-color: #e5e5e5;
-            --card-bg: #ffffff;
-            --link-color: #059669;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Name] — Senior Full-Stack .NET Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12181F;
+    --slate:#46505E;
+    --slate-light:#7C8494;
+    --bg:#FFFFFF;
+    --bg-soft:#F6F7F9;
+    --line:#E2E5EA;
+    --accent:#1F3A5F;
+    --accent-soft:#EAEEF3;
+    --gold:#8C6D2E;
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #0a0a0a;
-                --text-color: #f5f5f5;
-                --text-muted: #a3a3a3;
-                --accent-color: #e5e5e5;
-                --border-color: #262626;
-                --card-bg: #141414;
-                --link-color: #34d399;
-            }
-        }
+    --display: 'Newsreader', serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
 
-        html {
-            scroll-behavior: smooth;
-        }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+  body{
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--bg);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
 
-        .main-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 80px 24px;
-        }
+  a{color:inherit; text-decoration:none;}
 
-        /* Top Header / Profile Info */
-        .profile-header {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: center;
-            gap: 24px;
-            margin-bottom: 64px;
-        }
+  :focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
 
-        .profile-info h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin: 0 0 8px 0;
-            letter-spacing: -0.025em;
-        }
+  .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 32px; }
 
-        .profile-title {
-            font-size: 1.125rem;
-            color: var(--text-muted);
-            margin: 0 0 24px 0;
-        }
+  /* ---------- NAV ---------- */
+  header.nav{
+    position: sticky; top:0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1100px; margin:0 auto; padding: 20px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family: var(--display);
+    font-size: 18px; font-weight:600; letter-spacing: 0.01em; color: var(--ink);
+  }
+  nav.links{ display:flex; gap: 34px; font-size: 13.5px; font-weight:500; color: var(--slate); }
+  nav.links a:hover{ color: var(--accent); }
+  .nav-cta{
+    font-size: 13px; padding: 9px 18px; border: 1px solid var(--ink);
+    border-radius: 2px; color: var(--ink); font-weight:600;
+  }
+  .nav-cta:hover{ background: var(--ink); color:#fff; }
 
-        .profile-avatar {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            object-fit: cover;
-            filter: grayscale(20%);
-            border: 1px solid var(--border-color);
-        }
+  /* ---------- HERO ---------- */
+  .hero{ padding: 96px 0 68px; border-bottom: 1px solid var(--line); }
+  .hero-top{
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 60px; align-items:center;
+  }
+  .eyebrow{
+    font-family: var(--mono); font-size: 12px; color: var(--accent);
+    letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 20px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:""; width: 22px; height:1px; background: var(--accent); display:inline-block; }
+  h1{
+    font-family: var(--display); font-weight:500; font-size: 46px; line-height:1.14;
+    letter-spacing: -0.01em; color: var(--ink); margin-bottom: 22px;
+  }
+  .hero-sub{ font-size: 17px; color: var(--slate); max-width: 500px; margin-bottom: 30px; }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom: 26px; }
+  .btn-primary{
+    background: var(--ink); color:#fff; padding: 13px 24px; border-radius: 2px;
+    font-weight:600; font-size: 14px;
+  }
+  .btn-primary:hover{ background: var(--accent); }
+  .btn-secondary{
+    padding: 13px 24px; border: 1px solid var(--line); border-radius: 2px;
+    font-weight:600; font-size: 14px; color: var(--ink);
+  }
+  .btn-secondary:hover{ border-color: var(--ink); }
+  .hero-meta{
+    display:flex; gap: 22px; flex-wrap:wrap; font-size: 13px; color: var(--slate-light);
+    font-family: var(--mono);
+  }
 
-        .meta-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
+  /* diagram */
+  .diagram{
+    font-family: var(--mono); font-size: 12px; background: var(--bg-soft);
+    border: 1px solid var(--line); border-radius: 4px; padding: 22px;
+  }
+  .diagram-label{
+    color: var(--slate-light); font-size: 10.5px; text-transform:uppercase;
+    letter-spacing: 0.08em; margin-bottom: 14px;
+  }
+  .layer{
+    background: #fff; border: 1px solid var(--line); border-radius: 3px;
+    padding: 12px 14px; margin-bottom: 8px;
+    opacity: 0; animation: layerIn 0.5s ease forwards;
+  }
+  .layer:last-child{ margin-bottom:0; }
+  .layer .name{ font-weight:600; color: var(--ink); font-size:13px; }
+  .layer .tech{ color: var(--slate-light); font-size:11px; margin-top:3px; }
+  .layer.accent{ border-color: var(--accent); background: var(--accent-soft); }
+  .layer.accent .name{ color: var(--accent); }
+  .connector{
+    display:flex; justify-content:center; color: var(--slate-light); font-size: 11.5px;
+    padding: 2px 0; opacity:0; animation: layerIn 0.5s ease forwards;
+  }
+  .layer:nth-child(1){ animation-delay: 0.05s; }
+  .connector:nth-child(2){ animation-delay: 0.2s; }
+  .layer:nth-child(3){ animation-delay: 0.3s; }
+  .connector:nth-child(4){ animation-delay: 0.45s; }
+  .layer:nth-child(5){ animation-delay: 0.55s; }
+  @keyframes layerIn{ to{ opacity:1; } }
+  @media (prefers-reduced-motion: reduce){ .layer, .connector{ animation: none; opacity:1; } }
 
-        .meta-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2px;
-            transition: border-color 0.2s;
-        }
+  /* ---------- STAT STRIP ---------- */
+  .stats{ border-bottom: 1px solid var(--line); background: var(--bg-soft); }
+  .stats-inner{
+    display:grid; grid-template-columns: repeat(4, 1fr); max-width:1100px;
+    margin:0 auto; padding: 0 32px;
+  }
+  .stat{ padding: 28px 20px; border-right: 1px solid var(--line); }
+  .stat:last-child{ border-right:none; }
+  .stat .n{ font-family: var(--display); font-weight:600; font-size: 24px; color: var(--ink); }
+  .stat .l{ font-size: 12.5px; color: var(--slate); margin-top: 4px; }
 
-        .meta-links a:hover {
-            border-color: var(--link-color);
-            color: var(--link-color);
-        }
+  /* ---------- SECTION GENERIC ---------- */
+  section{ padding: 84px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin-bottom: 42px; gap: 24px; flex-wrap:wrap;
+  }
+  .section-head h2{ font-family: var(--display); font-weight:500; font-size: 30px; color: var(--ink); }
+  .section-head .tag{
+    font-family: var(--mono); font-size: 11.5px; color: var(--slate-light);
+    text-transform:uppercase; letter-spacing: 0.06em;
+  }
 
-        @media (max-width: 640px) {
-            .profile-header {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .profile-avatar {
-                order: -1;
-                margin: 0 auto;
-            }
-            .meta-links {
-                justify-content: center;
-            }
-        }
+  /* ---------- PROFILE ---------- */
+  .profile-grid{ display:grid; grid-template-columns: 1fr; gap: 14px; }
+  .profile-item{
+    display:grid; grid-template-columns: 200px 1fr; gap: 24px;
+    padding: 18px 0; border-top: 1px solid var(--line);
+  }
+  .profile-item:last-child{ border-bottom: 1px solid var(--line); }
+  .profile-item .k{ font-weight:600; font-size: 14.5px; color: var(--ink); }
+  .profile-item .v{ font-size: 14.5px; color: var(--slate); }
 
-        /* Content Sections */
-        section {
-            margin-bottom: 64px;
-        }
+  /* ---------- COMPETENCIES ---------- */
+  .comp-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .comp-col .head{
+    font-family: var(--mono); font-size: 11px; text-transform:uppercase; letter-spacing:0.06em;
+    color: var(--accent); padding-bottom: 10px; border-bottom: 2px solid var(--accent); margin-bottom: 14px;
+  }
+  .comp-col .tags{ display:flex; flex-wrap:wrap; gap:7px; }
+  .comp-col .tags span{
+    font-size: 12.5px; background: var(--bg-soft); border: 1px solid var(--line);
+    padding: 5px 10px; border-radius: 2px; color: var(--slate);
+  }
 
-        h2 {
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-bottom: 24px;
-        }
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  .tl-item{
+    display:grid; grid-template-columns: 160px 1fr; gap: 32px;
+    padding: 30px 0; border-top: 1px solid var(--line);
+  }
+  .tl-item:last-child{ border-bottom: 1px solid var(--line); }
+  .tl-date{ font-family: var(--mono); font-size: 12.5px; color: var(--slate-light); padding-top: 3px; }
+  .tl-role{ font-size: 17px; font-weight:600; color: var(--ink); margin-bottom: 3px; }
+  .tl-company{ font-size: 14px; color: var(--accent); font-weight:500; margin-bottom: 12px; }
+  .tl-desc{ color: var(--slate); font-size: 14.5px; max-width: 660px; margin-bottom: 14px; }
+  .tl-desc ul{ padding-left: 18px; margin-top: 6px; }
+  .tl-desc li{ margin-bottom: 5px; }
+  .tl-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tl-tags span{
+    font-family: var(--mono); font-size: 10.5px; background: var(--bg-soft);
+    border: 1px solid var(--line); padding: 4px 9px; border-radius: 2px; color: var(--slate);
+  }
 
-        .about-text {
-            font-size: 1.05rem;
-            color: var(--text-color);
-            text-align: justify;
-        }
+  /* ---------- PROJECTS ---------- */
+  .projects{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-bottom: 44px; }
+  .project{
+    border: 1px solid var(--line); border-radius: 4px; padding: 26px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    display:flex; flex-direction:column;
+  }
+  .project:hover{ transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 8px 24px rgba(18,24,31,0.06); }
+  .project .meta{
+    display:flex; justify-content:space-between; font-family: var(--mono);
+    font-size: 11px; color: var(--slate-light); margin-bottom: 12px;
+  }
+  .project h3{ font-family: var(--display); font-size: 19px; font-weight:500; margin-bottom: 10px; color: var(--ink); }
+  .project .desc{ font-size: 13.5px; color: var(--slate); margin-bottom: 14px; }
+  .project .field{ margin-bottom: 10px; }
+  .project .field .lab{
+    font-family: var(--mono); font-size: 10px; text-transform:uppercase; letter-spacing:0.06em;
+    color: var(--slate-light); margin-bottom: 3px;
+  }
+  .project .field .val{ font-size: 13px; color: var(--slate); }
+  .project .stack{
+    margin-top:auto; padding-top: 14px; border-top: 1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap: 6px;
+  }
+  .project .stack span{
+    font-family: var(--mono); font-size: 10px; background: var(--bg-soft);
+    padding: 3px 8px; border-radius: 2px; color: var(--slate);
+  }
 
-        /* Dynamic Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
-        }
+  .earlier-head{
+    font-family: var(--mono); font-size: 11.5px; text-transform:uppercase; letter-spacing:0.06em;
+    color: var(--slate-light); margin-bottom: 16px;
+  }
+  .earlier-list{ display:grid; gap: 0; }
+  .earlier-item{
+    display:grid; grid-template-columns: 220px 1fr; gap: 24px;
+    padding: 16px 0; border-top: 1px solid var(--line); font-size: 13.5px;
+  }
+  .earlier-item:last-child{ border-bottom: 1px solid var(--line); }
+  .earlier-item .name{ font-weight:600; color: var(--ink); }
+  .earlier-item .desc{ color: var(--slate); }
 
-        .skills-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 24px;
-        }
+  /* ---------- CREDENTIALS ---------- */
+  .cred-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .cred-block h3{
+    font-family: var(--mono); font-size: 12px; text-transform:uppercase; letter-spacing:0.06em;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  .cred-line{
+    display:flex; justify-content:space-between; padding: 13px 0; border-top: 1px solid var(--line);
+    font-size: 13.5px;
+  }
+  .cred-line:last-child{ border-bottom: 1px solid var(--line); }
+  .cred-line .name{ font-weight:600; color: var(--ink); }
+  .cred-line .issuer{ color: var(--slate-light); font-size: 12px; margin-top:2px; }
+  .cred-line .year{ font-family: var(--mono); font-size:12px; color: var(--gold); white-space:nowrap; }
 
-        .skills-card h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin: 0 0 16px 0;
-            color: var(--accent-color);
-        }
+  /* ---------- LANGUAGES ---------- */
+  .lang-strip{ display:flex; gap: 14px; flex-wrap:wrap; }
+  .lang-chip{
+    border: 1px solid var(--line); border-radius: 2px; padding: 10px 16px;
+    font-size: 13px; display:flex; gap:8px; align-items:center;
+  }
+  .lang-chip .name{ font-weight:600; color: var(--ink); }
+  .lang-chip .lvl{ font-family: var(--mono); font-size: 11px; color: var(--slate-light); }
 
-        .skills-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+  /* ---------- CONTACT ---------- */
+  .contact{ background: var(--ink); color:#fff; border-bottom:none; }
+  .contact .section-head h2{ color:#fff; }
+  .contact .section-head .tag{ color: rgba(255,255,255,0.45); }
+  .contact-grid{ display:grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items:start; }
+  .contact p{ color: rgba(255,255,255,0.7); font-size: 16px; max-width: 480px; margin-bottom: 28px; }
+  .contact-links{ display:flex; flex-direction:column; gap: 2px; }
+  .contact-links a{
+    display:flex; justify-content:space-between; padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15); font-weight:500; font-size:15px;
+  }
+  .contact-links a .arrow{ color: rgba(255,255,255,0.4); font-family: var(--mono); }
+  .contact-links a:hover{ color: #9CB4CE; }
+  .contact-card{
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px; padding: 26px; font-family: var(--mono); font-size: 12.5px;
+  }
+  .contact-card .row{
+    display:flex; justify-content:space-between; padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.75);
+  }
+  .contact-card .row:last-child{ border-bottom:none; }
+  .contact-card .row .k{ color: rgba(255,255,255,0.4); }
+  .contact-card .row .v{ color: #9CB4CE; text-align:right; }
 
-        .skills-card li {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
+  footer{
+    background: var(--ink); color: rgba(255,255,255,0.4); font-size: 12.5px;
+    font-family: var(--mono); padding: 24px 0 32px; text-align:center;
+  }
 
-        .skills-card li::before {
-            content: "→";
-            margin-right: 8px;
-            color: var(--link-color);
-            font-weight: bold;
-        }
-
-        /* Works / Experience Layout */
-        .work-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 32px;
-        }
-
-        .work-item {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 24px;
-        }
-
-        .work-time {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            padding-top: 2px;
-        }
-
-        .work-details h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin: 0 0 4px 0;
-        }
-
-        .work-company {
-            font-size: 0.95rem;
-            color: var(--link-color);
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-
-        .work-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 12px 0;
-        }
-
-        .tag {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-family: monospace;
-            color: var(--text-muted);
-        }
-
-        .work-desc {
-            list-style: square;
-            padding-left: 20px;
-            margin: 0;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .work-desc li {
-            margin-bottom: 8px;
-            text-align: justify;
-        }
-
-        @media (max-width: 640px) {
-            .work-item {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-            .work-time {
-                margin-bottom: 4px;
-            }
-        }
-
-        /* Footer Link */
-        .deep-dive-footer {
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
-        }
-
-        .deep-dive-btn {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            border-bottom: 1px solid var(--text-color);
-            padding-bottom: 2px;
-        }
-
-        .deep-dive-btn:hover {
-            color: var(--link-color);
-            border-color: var(--link-color);
-        }
-    </style>
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px){
+    .hero-top{ grid-template-columns: 1fr; }
+    .stats-inner{ grid-template-columns: repeat(2,1fr); }
+    .stat:nth-child(2){ border-right:none; }
+    .comp-grid{ grid-template-columns: repeat(2,1fr); }
+    .projects{ grid-template-columns: 1fr; }
+    .cred-grid{ grid-template-columns: 1fr; gap: 8px; }
+    .contact-grid{ grid-template-columns: 1fr; }
+    .profile-item, .earlier-item{ grid-template-columns: 1fr; gap:4px; }
+    nav.links{ display:none; }
+    h1{ font-size: 34px; }
+  }
+  @media (max-width: 520px){
+    .wrap, .nav-inner, .stats-inner{ padding-left:20px; padding-right:20px; }
+    .tl-item{ grid-template-columns: 1fr; gap:6px; }
+    section{ padding: 56px 0; }
+    .stats-inner{ grid-template-columns: repeat(2,1fr); }
+  }
+</style>
 </head>
 <body>
 
-    <div class="main-wrapper">
-        
-        <!-- Header Info Block -->
-        <header class="profile-header">
-            <div class="profile-info">
-                <h1>Hari Lakkakula</h1>
-                <p class="profile-title">Senior Software Engineer</p>
-                <div class="meta-links">
-                    <span>📍 Singapore</span>
-                    <a href="mailto:harilakkakula28@gmail.com">Email</a>
-                    <a href="https://github.com" target="_blank">GitHub</a>
-                    <a href="expertise.html">Technical Index</a>
-                </div>
-            </div>
-            <img src="avatar.jpg" alt="Hari Lakkakula" class="profile-avatar">
-        </header>
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">[Your Name]</div>
+    <nav class="links">
+      <a href="#profile">Profile</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="mailto:your.email@example.com">Get in touch</a>
+  </div>
+</header>
 
-        <!-- Brief Profile Narrative -->
-        <section>
-            <h2>Overview</h2>
-            <p class="about-text">
-                Senior Software Engineer with over 8 years of experience building, scaling, and architecting robust distributed ecosystems across complex corporate domains, financial clearing environments, and national civic tools[cite: 1]. Specializes in building highly stable software, low-latency streaming topologies, and clean backend designs[cite: 1].
-            </p>
-        </section>
-
-        <!-- Split Skill Array -->
-        <section>
-            <h2>Technical Foundations</h2>
-            <div class="skills-grid">
-                <div class="skills-card">
-                    <h3>Backend Engineering</h3>
-                    <ul>
-                        <li>C# / .NET Core / Web API[cite: 1]</li>
-                        <li>Microservices / REST Architecture[cite: 1]</li>
-                        <li>SOLID Principles &amp; TDD Patters[cite: 1]</li>
-                    </ul>
-                </div>
-                <div class="skills-card">
-                    <h3>Frontend Systems</h3>
-                    <ul>
-                        <li>Angular (16, 18) Framework[cite: 1]</li>
-                        <li>TypeScript / React Js Engines[cite: 1]</li>
-                        <li>Dynamics 365 Architecture[cite: 1]</li>
-                    </ul>
-                </div>
-                <div class="skills-card">
-                    <h3>DevOps &amp; Infrastructure</h3>
-                    <ul>
-                        <li>Apache Kafka Clusters[cite: 1]</li>
-                        <li>Docker Compose / Kubernetes Pods[cite: 1]</li>
-                        <li>SQL Server Optimizations[cite: 1]</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Clean Timeline Registry -->
-        <section>
-            <h2>Professional Records</h2>
-            <div class="work-grid">
-                
-                <!-- Timeline Project 1 -->
-                <div class="work-item">
-                    <div class="work-time">Jan 2026 – Present</div>
-                    <div class="work-details">
-                        <h3>Asset Servicing Platform — Private Markets</h3>
-                        <div class="work-company">GIC Private Markets, Singapore</div>
-                        <div class="work-tags">
-                            <span class="tag">.NET Core</span><span class="tag">Angular 16</span><span class="tag">Kafka</span><span class="tag">AWS SQS</span><span class="tag">Docker</span>
-                        </div>
-                        <ul class="work-desc">
-                            <li>Designed and developed highly scalable, compliant RESTful APIs and modular UI views adhering to strict enterprise accessibility guidelines[cite: 1].</li>
-                            <li>Implemented robust asynchronous, event-driven integrations utilizing Apache Kafka and AWS SQS for dependable transaction distribution[cite: 1].</li>
-                            <li>Applied Test-Driven Development (TDD) principles alongside Datadog observability integrations[cite: 1].</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Timeline Project 2 -->
-                <div class="work-item">
-                    <div class="work-time">Aug 2024 – Jan 2026</div>
-                    <div class="work-details">
-                        <h3>IRIN3 — Pillar 2 Tax Platform</h3>
-                        <div class="work-company">IRAS (Accenture), Singapore</div>
-                        <div class="work-tags">
-                            <span class="tag">.NET Core</span><span class="tag">Angular 16</span><span class="tag">SQL Server 2022</span><span class="tag">Kafka</span><span class="tag">Azure WAF</span>
-                        </div>
-                        <ul class="work-desc">
-                            <li>Engineered secure back-end APIs and modular web components aligned with corporate coding layouts and WCAG accessibility compliance[cite: 1].</li>
-                            <li>Maintained strict system reliability standards by authoring structural unit test suites targeting 80%+ logical test coverage parameters[cite: 1].</li>
-                            <li>Optimized persistent database tiers through structured SQL Server storage procedures[cite: 1].</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Timeline Project 3 -->
-                <div class="work-item">
-                    <div class="work-time">Mar 2024 – Aug 2024</div>
-                    <div class="work-details">
-                        <h3>Citizen Service Management Portal</h3>
-                        <div class="work-company">NTT Data, Singapore</div>
-                        <div class="work-tags">
-                            <span class="tag">Dynamics 365 CRM</span><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">Azure Logic Apps</span>
-                        </div>
-                        <ul class="work-desc">
-                            <li>Customized Microsoft Dynamics 365 CRM Customer Service entities to establish automated routing and case workflow pipelines[cite: 1].</li>
-                            <li>Created Canvas and Model-driven Power Apps paired with Power Automate tracking routines[cite: 1].</li>
-                            <li>Constructed independent .NET Web APIs communicating over Azure Service Bus[cite: 1].</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Base Footer Section -->
-        <footer class="deep-dive-footer">
-            <span style="color: var(--text-muted);">&copy; 2026 Hari Lakkakula.</span>
-            <a href="expertise.html" class="deep-dive-btn">Explore Technical Explanations &rarr;</a>
-        </footer>
-
+<section class="hero">
+  <div class="wrap hero-top">
+    <div>
+      <div class="eyebrow">Senior Full-Stack .NET Developer</div>
+      <h1>Building resilient systems for finance, tax, and government platforms.</h1>
+      <p class="hero-sub">Nine years delivering full-stack .NET applications end to end — from asset servicing platforms for a sovereign wealth fund to national tax and e-government systems — across Singapore and India.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#experience">View experience</a>
+        <a class="btn-secondary" href="#contact">Download résumé</a>
+      </div>
+      <div class="hero-meta">
+        <span>Based in Singapore</span>
+        <span>·</span>
+        <span>Work authorization: Employment Pass</span>
+      </div>
     </div>
+    <div class="diagram">
+      <div class="diagram-label">// system overview — request lifecycle</div>
+      <div class="layer accent">
+        <div class="name">Client Layer</div>
+        <div class="tech">Angular · React · TypeScript</div>
+      </div>
+      <div class="connector">↓ REST / GraphQL · OAuth2 / JWT</div>
+      <div class="layer">
+        <div class="name">API & Integration Layer</div>
+        <div class="tech">ASP.NET Core · Web API · Kafka · API Gateway</div>
+      </div>
+      <div class="connector">↓ Event-driven · Message queues</div>
+      <div class="layer">
+        <div class="name">Service Layer</div>
+        <div class="tech">Microservices · Azure Functions · AWS Lambda</div>
+      </div>
+      <div class="connector">↓ EF Core · LINQ</div>
+      <div class="layer">
+        <div class="name">Data Layer</div>
+        <div class="tech">SQL Server · MongoDB · Redis · DynamoDB</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><div class="n">9 yrs</div><div class="l">Full-stack engineering experience</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">Countries' institutions served (SG, US, India)</div></div>
+    <div class="stat"><div class="n">12+</div><div class="l">Enterprise systems delivered</div></div>
+    <div class="stat"><div class="n">~100%</div><div class="l">Test coverage on critical modules</div></div>
+  </div>
+</div>
+
+<section id="profile">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Profile</h2>
+      <span class="tag">01 — Summary</span>
+    </div>
+    <div class="profile-grid">
+      <div class="profile-item">
+        <div class="k">Full-stack development</div>
+        <div class="v">Design and build scalable, high-performance applications across front-end and back-end, ensuring seamless user experience and system reliability.</div>
+      </div>
+      <div class="profile-item">
+        <div class="k">API design & integration</div>
+        <div class="v">Develop secure, versioned RESTful and GraphQL APIs following best practices — OAuth2, JWT, idempotency — for efficient system and third-party integrations.</div>
+      </div>
+      <div class="profile-item">
+        <div class="k">Cloud & DevOps</div>
+        <div class="v">Implement cloud-native solutions on Azure and AWS with CI/CD pipelines, Docker, and Kubernetes to enable scalability, automation, and high availability.</div>
+      </div>
+      <div class="profile-item">
+        <div class="k">Database engineering</div>
+        <div class="v">Architect and optimize relational and NoSQL databases with a strong focus on performance tuning, indexing, and data integrity.</div>
+      </div>
+      <div class="profile-item">
+        <div class="k">Financial domain</div>
+        <div class="v">Build and maintain systems in financial services, including transaction processing and secure data handling aligned with compliance standards.</div>
+      </div>
+      <div class="profile-item">
+        <div class="k">Enterprise integration</div>
+        <div class="v">Handle complex integrations using event-driven architecture, message queues, and API gateways, ensuring resilience and fault tolerance.</div>
+      </div>
+      <div class="profile-item">
+        <div class="k">Microservices & code quality</div>
+        <div class="v">Develop microservices-based systems with clean architecture, enforce coding standards, conduct code reviews, and mentor team members.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="competencies">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Core competencies</h2>
+      <span class="tag">02 — Technical range</span>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-col">
+        <div class="head">Languages & Frameworks</div>
+        <div class="tags">
+          <span>C#</span><span>ASP.NET Core</span><span>ASP.NET MVC</span><span>Web API</span>
+          <span>WCF</span><span>Entity Framework</span><span>LINQ</span><span>Node.js</span>
+          <span>Dynamics 365 CRM</span><span>Power Platform</span>
+        </div>
+      </div>
+      <div class="comp-col">
+        <div class="head">Frontend</div>
+        <div class="tags">
+          <span>Angular (9–18)</span><span>React</span><span>TypeScript</span><span>JavaScript</span>
+          <span>ngRx / Redux</span><span>HTML5 / CSS3</span><span>SharePoint</span>
+        </div>
+      </div>
+      <div class="comp-col">
+        <div class="head">Cloud & Messaging</div>
+        <div class="tags">
+          <span>Azure Functions</span><span>Azure API Management</span><span>Azure WAF</span>
+          <span>AWS Lambda</span><span>AWS S3 / SQS</span><span>Kafka</span><span>Docker</span>
+          <span>Kubernetes</span>
+        </div>
+      </div>
+      <div class="comp-col">
+        <div class="head">Data & Quality</div>
+        <div class="tags">
+          <span>SQL Server</span><span>MongoDB</span><span>DynamoDB</span><span>xUnit</span>
+          <span>Integration Testing</span><span>Datadog</span><span>SRE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <span class="tag">03 — Timeline</span>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Jan 2026 — Present</div>
+        <div>
+          <div class="tl-role">Senior Full-Stack Developer</div>
+          <div class="tl-company">GIC Private Markets — Singapore</div>
+          <p class="tl-desc">Developing a mission-critical asset servicing platform for private markets, managing investments, deals, transactions, valuations, and portfolio lifecycle for a sovereign wealth fund. Focused on data accuracy, auditability, and real-time portfolio visibility.</p>
+          <div class="tl-tags"><span>.NET Core</span><span>Angular 16</span><span>Kafka</span><span>AWS SQS</span><span>Redis</span><span>Datadog</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Aug 2024 — Jan 2026</div>
+        <div>
+          <div class="tl-role">Senior Developer</div>
+          <div class="tl-company">IRAS, via Accenture — Singapore</div>
+          <p class="tl-desc">Delivered RESTful APIs and accessible UI components for IRIN3 — Singapore's national tax administration platform (income tax, GST, corporate tax, and disbursement schemes) — while maintaining 80%+ test coverage and supporting UAT with Business Analysts and QA.</p>
+          <div class="tl-tags"><span>.NET Core</span><span>Angular 16</span><span>SQL Server</span><span>Docker</span><span>D365 Integration</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Feb 2023 — Aug 2024</div>
+        <div>
+          <div class="tl-role">Senior Developer</div>
+          <div class="tl-company">NTT Data — Singapore</div>
+          <p class="tl-desc">Delivered platforms across three Singapore government and institutional clients — IBF, GovTech, and SingPost — spanning CRM-based case management, national identity and access automation, and citizen-facing service portals.</p>
+          <div class="tl-tags"><span>Dynamics 365</span><span>Power Automate</span><span>PowerShell</span><span>Azure AD</span><span>React</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Mar 2017 — Feb 2023</div>
+        <div>
+          <div class="tl-role">Full-Stack / Senior Developer</div>
+          <div class="tl-company">Dr Reddy's Foundation — India</div>
+          <p class="tl-desc">Built and maintained skilling and financial-services platforms including a lending platform for an NBFC and a career-readiness system used to match candidates to job profiles, with continued post-placement support tracking.</p>
+          <div class="tl-tags"><span>ASP.NET MVC</span><span>Angular</span><span>React</span><span>MongoDB</span><span>SQL Server</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Nov 2016 — Mar 2017</div>
+        <div>
+          <div class="tl-role">Software Developer</div>
+          <div class="tl-company">Pac Core Software Ind Pvt. Ltd — India</div>
+          <p class="tl-desc">Started career delivering ASP.NET web applications, building foundational experience across the full request lifecycle from UI to database.</p>
+          <div class="tl-tags"><span>ASP.NET</span><span>C#</span><span>SQL Server</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected projects</h2>
+      <span class="tag">04 — Case studies</span>
+    </div>
+    <div class="projects">
+      <div class="project">
+        <div class="meta"><span>GIC PRIVATE MARKETS</span><span>2026—PRESENT</span></div>
+        <h3>Asset Servicing Platform</h3>
+        <p class="desc">Mission-critical platform for managing investments, deals, transactions, valuations, and portfolio lifecycle in private markets.</p>
+        <div class="field"><div class="lab">Approach</div><div class="val">Event-driven architecture using AWS SQS and Kafka for asynchronous investment and transaction workflows; TDD with ~100% coverage on critical modules; Datadog for observability.</div></div>
+        <div class="field"><div class="lab">Result</div><div class="val">Reliable, auditable processing of high-value financial data with proactive production monitoring.</div></div>
+        <div class="stack"><span>.NET Core</span><span>Angular 16</span><span>Kafka</span><span>AWS SQS</span><span>Redis</span><span>Airflow</span></div>
+      </div>
+      <div class="project">
+        <div class="meta"><span>IRAS</span><span>2024—2026</span></div>
+        <h3>IRIN3 — Pillar 2</h3>
+        <p class="desc">Core module of Singapore's national tax collection and administration platform, covering income, property, GST, and corporate tax.</p>
+        <div class="field"><div class="lab">Approach</div><div class="val">RESTful APIs and reusable UI components built to WCAG accessibility standards; stored procedures and functions for backend logic; consistent unit test coverage above 80%.</div></div>
+        <div class="field"><div class="lab">Result</div><div class="val">Stable module integration validated through structured UAT with Business Analysts and QA.</div></div>
+        <div class="stack"><span>.NET Core</span><span>Angular 16</span><span>SQL Server</span><span>Kafka</span><span>Docker</span></div>
+      </div>
+      <div class="project">
+        <div class="meta"><span>GOVTECH</span><span>2023—2024</span></div>
+        <h3>SG-Mail Government Identity Platform</h3>
+        <p class="desc">Identity and access automation supporting Singapore's Smart Nation digital services initiative.</p>
+        <div class="field"><div class="lab">Approach</div><div class="val">PowerShell automation for Azure and Active Directory account provisioning; responsive single-page UI in AngularJS; REST APIs backed by SQL Server stored procedures.</div></div>
+        <div class="field"><div class="lab">Result</div><div class="val">Reduced manual provisioning overhead and improved reporting turnaround for IT operations.</div></div>
+        <div class="stack"><span>.NET Core</span><span>PowerShell</span><span>React</span><span>Azure AD</span><span>WCF</span></div>
+      </div>
+      <div class="project">
+        <div class="meta"><span>HOUSING AUTHORITY, SG</span><span>2023—2024</span></div>
+        <h3>Enterprise Resource Management Portal</h3>
+        <p class="desc">Unified platform for internal resource allocation, maintenance scheduling, and financial tracking.</p>
+        <div class="field"><div class="lab">Approach</div><div class="val">Custom Dynamics 365 entities, plugins, and workflows for service requests, vendor management, and billing; Power Automate flows connecting SharePoint, SQL, and CRM.</div></div>
+        <div class="field"><div class="lab">Result</div><div class="val">Improved operational visibility and workforce efficiency across departments.</div></div>
+        <div class="stack"><span>Dynamics 365</span><span>Power Apps</span><span>.NET Core</span><span>Azure Functions</span></div>
+      </div>
+      <div class="project">
+        <div class="meta"><span>IBF SINGAPORE</span><span>2023</span></div>
+        <h3>Institute of Banking & Finance Platform</h3>
+        <p class="desc">National accreditation and certification system for financial industry competency in Singapore.</p>
+        <div class="field"><div class="lab">Approach</div><div class="val">Dynamic single-page UI with AngularJS and jQuery; REST APIs aligned to certification business logic; SQL Server stored procedures for data operations.</div></div>
+        <div class="field"><div class="lab">Result</div><div class="val">Stable production system supporting ongoing IBF certification workflows.</div></div>
+        <div class="stack"><span>.NET Core</span><span>AngularJS</span><span>SQL Server</span><span>SSRS</span></div>
+      </div>
+      <div class="project">
+        <div class="meta"><span>VREEDHI FINANCIAL SERVICES</span><span>2021—2023</span></div>
+        <h3>VFIN Tech — NBFC Lending Platform</h3>
+        <p class="desc">Loan origination platform for a non-banking financial company serving tier-II and tier-III customers and micro-enterprises.</p>
+        <div class="field"><div class="lab">Approach</div><div class="val">Responsive single-page application with AngularJS and jQuery; REST APIs and SQL Server backend; production support handling critical financial workflows.</div></div>
+        <div class="field"><div class="lab">Result</div><div class="val">Enabled affordable, timely loan servicing for underserved micro-enterprise customers.</div></div>
+        <div class="stack"><span>ASP.NET MVC</span><span>Angular 13</span><span>MongoDB</span><span>Node.js</span></div>
+      </div>
+    </div>
+
+    <div class="earlier-head">Earlier projects</div>
+    <div class="earlier-list">
+      <div class="earlier-item">
+        <div class="name">GROW — Dr Reddy's Foundation</div>
+        <div class="desc">Skilling platform matching candidate aspirations and competencies to job profiles, with post-placement retention support. ASP.NET MVC, Angular, React, D3.js.</div>
+      </div>
+      <div class="earlier-item">
+        <div class="name">LERETA Web Task System — US</div>
+        <div class="desc">Workflow prioritization system for outsourced loan servicing tasks, aligned to client SLAs. ASP.NET MVC, AngularJS, SQL Server.</div>
+      </div>
+      <div class="earlier-item">
+        <div class="name">Lane Comfort Link — Lane Furniture, US</div>
+        <div class="desc">Digitized dealer credit request workflow, replacing manual paper-based warranty and returns processing. ASP.NET MVC, WCF, AngularJS.</div>
+      </div>
+      <div class="earlier-item">
+        <div class="name">Broyhill Sales Portal — US</div>
+        <div class="desc">Sales order entry system with saved item lists, container booking, and custom upholstery configuration. ASP.NET MVC, AngularJS, LINQ.</div>
+      </div>
+      <div class="earlier-item">
+        <div class="name">Vendor Portal Management — Thomasville Furniture, US</div>
+        <div class="desc">Vendor lookup and PO acknowledgment system integrating SQL Server with SAP via SAP.NET Connector. ASP.NET MVC, AngularJS.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Education & certifications</h2>
+      <span class="tag">05 — Credentials</span>
+    </div>
+    <div class="cred-grid">
+      <div class="cred-block">
+        <h3>Education</h3>
+        <div class="cred-line">
+          <div><div class="name">MCA, Computer Science (8.5 GPA)</div><div class="issuer">S.V. University, Tirupathi, India</div></div>
+          <div class="year">2016</div>
+        </div>
+        <div class="cred-line">
+          <div><div class="name">B.Sc, Computer Science (7.8 GPA)</div><div class="issuer">V.S. University, Nellore, India</div></div>
+          <div class="year">2013</div>
+        </div>
+      </div>
+      <div class="cred-block">
+        <h3>Certifications</h3>
+        <div class="cred-line">
+          <div><div class="name">ICT Assessment for Software Developer</div><div class="issuer">NUS-ISS, Singapore</div></div>
+        </div>
+        <div class="cred-line">
+          <div><div class="name">ASP.NET Core</div><div class="issuer">C# Corner</div></div>
+        </div>
+        <div class="cred-line">
+          <div><div class="name">Software Reliability Engineering (SRE)</div><div class="issuer">LinkedIn Learning</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="languages">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Languages</h2>
+      <span class="tag">06 — Communication</span>
+    </div>
+    <div class="lang-strip">
+      <div class="lang-chip"><span class="name">English</span><span class="lvl">Fluent</span></div>
+      <div class="lang-chip"><span class="name">Tamil</span><span class="lvl">Fluent</span></div>
+      <div class="lang-chip"><span class="name">Telugu</span><span class="lvl">Fluent</span></div>
+      <div class="lang-chip"><span class="name">Hindi</span><span class="lvl">Fluent</span></div>
+      <div class="lang-chip"><span class="name">German</span><span class="lvl">A2</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:24px;">
+        <h2>Let's talk</h2>
+        <span class="tag">07 — Contact</span>
+      </div>
+      <p>Open to senior full-stack and backend-focused roles in financial services, government, or enterprise platforms. Based in Singapore.</p>
+      <div class="contact-links">
+        <a href="mailto:your.email@example.com">Email <span class="arrow">→</span></a>
+        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn <span class="arrow">→</span></a>
+        <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="row"><span class="k">location</span><span class="v">Singapore</span></div>
+      <div class="row"><span class="k">work_authorization</span><span class="v">Employment Pass</span></div>
+      <div class="row"><span class="k">focus</span><span class="v">.NET · Angular/React · Azure/AWS</span></div>
+      <div class="row"><span class="k">domains</span><span class="v">Finance · Tax · Gov-Tech</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 [Your Name] — Senior Full-Stack .NET Developer.
+</footer>
 
 </body>
 </html>
