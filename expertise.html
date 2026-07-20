@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Deep Dive | Hari Lakkakula</title>
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #212529;
+            --primary-color: #0056b3;
+            --secondary-color: #495057;
+            --card-bg: #ffffff;
+            --border-color: #dee2e6;
+            --nav-bg: rgba(244, 246, 249, 0.95);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --text-color: #e0e0e0;
+                --primary-color: #3792cb;
+                --secondary-color: #a0a0a0;
+                --card-bg: #1e1e1e;
+                --border-color: #2d2d2d;
+                --nav-bg: rgba(18, 18, 18, 0.95);
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo, .back-link {
+            font-weight: bold;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+        }
+
+        .sub-subtitle {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+            margin-bottom: 20px;
+        }
+
+        .lang-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .lang-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        h4 {
+            margin: 20px 0 8px 0;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--secondary-color);
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">HL</a>
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <header>
+            <h1>Explanations &amp; Technical Focus</h1>
+            <p class="sub-subtitle">Architectural breakdowns, ecosystem engineering, and core paradigms.</p>
+        </header>
+
+        <!-- C# / .NET Breakdown -->
+        <section>
+            <div class="lang-card">
+                <div class="lang-title">🔷 C# &amp; Ecosystem (.NET Core / Framework)</div>
+                <p>Advanced focus on Clean Architecture patterns, structural optimization, and building asynchronous payment and transactional processing subsystems[cite: 1].</p>
+                
+                <h4>Core Design Principles</h4>
+                <ul>
+                    <li><strong>Design Patterns:</strong> Practiced application of structural patterns, notably implementing the <em>Adapter Pattern</em> to decouples complex external third-party payment integrations safely.</li>
+                    <li><strong>Enterprise Legacy Systems:</strong> Experienced managing enterprise-tier .NET MVC solutions hosted on strict environments like Visual Studio 2015, troubleshooting network vulnerabilities such as SSL/TLS secure channel exceptions effectively without changing core legacy frameworks.</li>
+                    <li><strong>Async Processing:</strong> Building lightweight background services using tasks and asynchronous workers to handle heavy multi-threaded compute workloads cleanly.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Frontend Breakdown -->
+        <section>
+            <div class="lang-card">
+                <div class="lang-title">🔶 Modern Frontend (Angular / React / TypeScript)</div>
+                <p>Architecting highly responsive Single Page Applications (SPAs) optimized for large enterprise backoffices and government client dashboards[cite: 1].</p>
+                
+                <h4>Core Core Concepts</h4>
+                <ul>
+                    <li><strong>State Management &amp; Binding:</strong> Designing systematic data streams using unidirectional data bindings, custom directives, filtering pipelines, and reactive state trees (ngRx/Redux)[cite: 1].</li>
+                    <li><strong>Accessibility &amp; Engineering Standards:</strong> Crafting semantic component designs matching rigid international WCAG accessibility guidelines for public-facing software[cite: 1].</li>
+                    <li><strong>Dynamic UI Controls:</strong> Creating customized, highly reusable form validation layouts and asynchronous metrics tracking tools built on reactive programming principles.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- DevOps & Data Breakdown -->
+        <section>
+            <div class="lang-card">
+                <div class="lang-title">🟢 Cloud, Orchestration &amp; Relational Data</div>
+                <p>Configuring highly available containerized modern microservice runtimes and fine-tuning complex data distribution pipelines[cite: 1].</p>
+                
+                <h4>Core Core Concepts</h4>
+                <ul>
+                    <li><strong>Containerized Orchestration:</strong> Constructing multi-container architectures using Docker Compose to isolate event systems like Apache Kafka and Apache Zookeeper cleanly. Preparing resilient Kubernetes Pod configuration manifests.</li>
+                    <li><strong>Advanced Data Modeling:</strong> Optimizing relational tables and structural data layouts—such as passenger boarding systems and fleet distribution logic—using comprehensive multi-table SQL joins and query adjustments.</li>
+                    <li><strong>Cloud Boundaries:</strong> Managing safe communication topologies through Azure Web Application Firewalls (WAF) and Azure API Gateways to encapsulate microservice meshes[cite: 1].</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Hari Lakkakula. All Rights Reserved. Built with HTML5 &amp; CSS3.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
