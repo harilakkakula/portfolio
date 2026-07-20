@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senior Software Engineer | Portfolio</title>
+    <title>Hari Lakkakula | Senior Software Engineer Portfolio</title>
     <style>
         :root {
-            --bg-color: #f8f9fa;
+            --bg-color: #f4f6f9;
             --text-color: #212529;
             --primary-color: #0056b3;
+            --secondary-color: #495057;
             --card-bg: #ffffff;
             --border-color: #dee2e6;
+            --tag-bg: #e9ecef;
+            --tag-text: #495057;
+            --nav-bg: rgba(244, 246, 249, 0.95);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -18,13 +22,22 @@
                 --bg-color: #121212;
                 --text-color: #e0e0e0;
                 --primary-color: #3792cb;
+                --secondary-color: #a0a0a0;
                 --card-bg: #1e1e1e;
-                --border-color: #333333;
+                --border-color: #2d2d2d;
+                --tag-bg: #2d2d2d;
+                --tag-text: #e0e0e0;
+                --nav-bg: rgba(18, 18, 18, 0.95);
             }
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Prevents sticky nav from covering section headers */
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -32,163 +45,347 @@
             color: var(--text-color);
         }
 
-        header {
-            max-width: 800px;
-            margin: 40px auto 20px auto;
-            padding: 0 20px;
+        /* Sticky Navigation Bar */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
         }
 
-        h1 { margin-bottom: 5px; color: var(--text-color); }
-        .subtitle { font-size: 1.2rem; color: var(--primary-color); margin-top: 0; font-weight: 500; }
-        .summary { font-size: 1.05rem; margin-bottom: 30px; }
-
-        main {
-            max-width: 800px;
+        .nav-container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px 60px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        section { margin-bottom: 40px; }
-        h2 { border-bottom: 2px solid var(--border-color); padding-bottom: 8px; margin-bottom: 20px; }
+        .nav-logo {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            text-decoration: none;
+        }
 
-        /* Grid Layout for Skills and Projects */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        .nav-links {
+            display: flex;
             gap: 20px;
         }
 
-        .skills-category {
-            background: var(--card-bg);
-            padding: 15px 20px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
+        .nav-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
 
-        .skills-category h3 { margin-top: 0; font-size: 1.1rem; color: var(--primary-color); }
-        .skills-category ul { padding-left: 20px; margin-bottom: 0; }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
 
-        .project-card {
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            margin: 0 0 5px 0;
+            font-size: 2.5rem;
+        }
+
+        .title-badge {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .summary {
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        section {
+            margin-bottom: 45px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+            margin-bottom: 25px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .skills-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 20px;
-            margin-bottom: 20px;
+        }
+
+        .skills-card h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .skills-card ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .skills-card li {
+            margin-bottom: 6px;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 25px;
         }
 
         .project-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
-        .project-title { font-size: 1.25rem; font-weight: bold; margin: 0; }
-        .project-tags { font-size: 0.85rem; background: var(--border-color); padding: 4px 8px; border-radius: 4px; font-family: monospace; }
-        
-        .framework-box {
-            margin-top: 15px;
-            padding: 10px 15px;
-            background: rgba(0, 0, 0, 0.02);
-            border-left: 3px solid var(--primary-color);
-            font-size: 0.95rem;
-        }
-        
-        @media (prefers-color-scheme: dark) {
-            .framework-box { background: rgba(255, 255, 255, 0.03); }
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0;
         }
 
-        .footer {
-            text-align: center;
-            padding: 4px 0;
+        .project-meta {
             font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        .project-card ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .project-card li {
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 20px;
             border-top: 1px solid var(--border-color);
-            margin-top: 40px;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Senior Software Engineer</h1>
-        <p class="subtitle">Backend Architecture &amp; Distributed Systems</p>
-        <p class="summary">
-            NUS-certified Senior Dev (8+ yrs). Expert in scalable full-stack apps, cloud infrastructure, and clean code. Specializing in high-impact microservices, robust data engines, and pragmatic system modernization.
-        </p>
-    </header>
+    <!-- Sticky Header Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="#about" class="nav-logo">HL</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#toolbox">Toolbox</a>
+                <a href="#projects">Projects</a>
+                <a href="#credentials">Credentials</a>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-        <!-- Skills Section -->
-        <section>
+    <div class="container">
+        
+        <!-- Header / About Section -->
+        <header id="about">
+            <h1>Hari Lakkakula</h1>
+            <p class="title-badge">Senior Software Engineer</p>
+            <div class="contact-info">
+                <span>📍 Singapore</span>
+                <span>📧 harilakkakula28@gmail.com</span>
+                <span>📞 +65 90167145 / +91 8498951813</span>
+                <span>📜 EP Holder | NUS-ISS ICT Certified</span>
+            </div>
+            <p class="summary">
+                Senior Software Engineer with over 8 years of experience designing, developing, and delivering scalable full-stack software solutions across diverse domains, including financial services and public sector administration[cite: 1]. Expert in cloud integration, event-driven architectures, database optimization, and agile methodologies with a strong commitment to clean code practices and system availability[cite: 1].
+            </p>
+        </header>
+
+        <!-- Technical Toolbox Section -->
+        <section id="toolbox">
             <h2>Technical Toolbox</h2>
             <div class="skills-grid">
-                <div class="skills-category">
-                    <h3>Backend &amp; Core</h3>
+                <div class="skills-card">
+                    <h3>Backend &amp; Core Architecture</h3>
                     <ul>
-                        <li>C# / .NET Core / WebAPI</li>
-                        <li>.NET Framework / MVC</li>
-                        <li>Design Patterns (Adapter, DI)</li>
-                        <li>SOLID / Clean Architecture</li>
+                        <li>C# / .NET Core / ASP.NET MVC[cite: 1]</li>
+                        <li>Web API / WCF / Microservices[cite: 1]</li>
+                        <li>Entity Framework / LINQ[cite: 1]</li>
+                        <li>SOLID / Design Patterns / TDD[cite: 1]</li>
                     </ul>
                 </div>
-                <div class="skills-category">
-                    <h3>DevOps &amp; Messaging</h3>
+                <div class="skills-card">
+                    <h3>Frontend &amp; Integration</h3>
                     <ul>
-                        <li>Docker Compose</li>
-                        <li>Kubernetes Pods</li>
-                        <li>Apache Kafka</li>
-                        <li>ZooKeeper</li>
+                        <li>Angular (16, 18) / React Js[cite: 1]</li>
+                        <li>JavaScript (ES6) / TypeScript[cite: 1]</li>
+                        <li>Dynamics 365 CRM[cite: 1]</li>
+                        <li>Power Platform / Automate[cite: 1]</li>
                     </ul>
                 </div>
-                <div class="skills-category">
-                    <h3>Data &amp; Integration</h3>
+                <div class="skills-card">
+                    <h3>Cloud, DevOps &amp; Data</h3>
                     <ul>
-                        <li>SQL Server (Advanced T-SQL)</li>
-                        <li>Google Cloud Firestore</li>
-                        <li>Flutter / Dart</li>
-                        <li>API Optimization</li>
+                        <li>Docker / Kubernetes Pods[cite: 1]</li>
+                        <li>Apache Kafka / AWS SQS / RabbitMQ[cite: 1]</li>
+                        <li>Azure (Functions, APIM, WAF)[cite: 1]</li>
+                        <li>SQL Server / MongoDB / DynamoDB[cite: 1]</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section>
+        <!-- Experience & Projects Section -->
+        <section id="projects">
             <h2>Featured Projects</h2>
 
             <!-- Project 1 -->
             <div class="project-card">
                 <div class="project-header">
-                    <span class="project-title">Distributed Event-Driven Architecture</span>
-                    <span class="project-tags">Kafka / Docker / .NET Core</span>
+                    <div>
+                        <h3 class="project-title">Asset Servicing Platform — Private Markets</h3>
+                        <div class="project-meta">GIC Private Markets, Singapore | Jan 2026 – Present</div>
+                    </div>
                 </div>
-                <p>Designed a high-throughput messaging ecosystem using Apache Kafka and ZooKeeper to decouple service dependencies. Containerized the infrastructure using Docker Compose and prepared configurations optimized for Kubernetes pod execution environments.</p>
+                <div class="tech-tags">
+                    <span class="tag">.NET Core</span><span class="tag">C#</span><span class="tag">Angular 16</span><span class="tag">SQL Server</span><span class="tag">Kafka</span><span class="tag">AWS SQS</span><span class="tag">Docker</span><span class="tag">Datadog</span>
+                </div>
+                <ul>
+                    <li>Designed and developed highly scalable, compliant RESTful APIs and modular UI views adhering to strict enterprise accessibility guidelines[cite: 1].</li>
+                    <li>Implemented robust asynchronous, event-driven integrations utilizing Apache Kafka and AWS SQS for dependable transaction distribution[cite: 1].</li>
+                    <li>Applied Test-Driven Development (TDD) principles alongside Datadog observability integrations to ensure up to ~100% test coverage and proactive incident remediation[cite: 1].</li>
+                    <li>Optimized high-value financial data engines processing portfolio valuations, deals, and lifecycle items[cite: 1].</li>
+                </ul>
             </div>
 
             <!-- Project 2 -->
             <div class="project-card">
                 <div class="project-header">
-                    <span class="project-title">Enterprise System Modernization Engine</span>
-                    <span class="project-tags">C# / .NET MVC / SQL Server</span>
+                    <div>
+                        <h3 class="project-title">IRIN3 — Pillar 2 Tax Platform</h3>
+                        <div class="project-meta">IRAS (Accenture), Singapore | Aug 2024 – Jan 2026</div>
+                    </div>
                 </div>
-                <p>Maintained and extended core business capabilities within legacy constraints (Visual Studio 2015). Applied the Adapter pattern to integrate modern external APIs seamlessly, optimized complex relational T-SQL joining logic, and resolved underlying infrastructure blocks including SSL/TLS channel security faults.</p>
+                <div class="tech-tags">
+                    <span class="tag">.NET Core</span><span class="tag">C#</span><span class="tag">Angular 16</span><span class="tag">SQL Server 2022</span><span class="tag">Kafka</span><span class="tag">Redis</span><span class="tag">Azure WAF</span>
+                </div>
+                <ul>
+                    <li>Engineered secure back-end APIs and modular web components aligned with corporate coding layouts and WCAG accessibility compliance[cite: 1].</li>
+                    <li>Maintained strict system reliability standards by authoring structural unit test suites targeting 80%+ logical test coverage parameters[cite: 1].</li>
+                    <li>Optimized persistent database tiers through structured SQL Server storage procedures, analytical optimizations, and rapid incident bug resolution[cite: 1].</li>
+                </ul>
             </div>
 
             <!-- Project 3 -->
             <div class="project-card">
                 <div class="project-header">
-                    <span class="project-title">Cross-Platform Metric Pipeline</span>
-                    <span class="project-tags">Flutter / Dart / Firestore</span>
+                    <div>
+                        <h3 class="project-title">Citizen Service Management Portal (CSMP)</h3>
+                        <div class="project-meta">NTT Data, Singapore | Mar 2024 – Aug 2024</div>
+                    </div>
                 </div>
-                <p>Engineered a cross-platform mobile client form infrastructure using Flutter to handle complex offline data persistence validation, instantly streaming verified structured updates out to a real-time Google Cloud Firestore NoSQL storage layer.</p>
+                <div class="tech-tags">
+                    <span class="tag">Dynamics 365 CRM</span><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">.NET 6</span><span class="tag">Azure Logic Apps</span>
+                </div>
+                <ul>
+                    <li>Customized Microsoft Dynamics 365 CRM Customer Service entities to establish automated routing and case workflow pipelines[cite: 1].</li>
+                    <li>Created Canvas and Model-driven Power Apps paired with Power Automate tracking routines to digitize multi-department approval flows[cite: 1].</li>
+                    <li>Constructed independent .NET Web APIs communicating over Azure Service Bus to bridge data exchanges across internal systems securely[cite: 1].</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education & Credentials Section -->
+        <section id="credentials">
+            <h2>Education &amp; Credentials</h2>
+            <div class="project-card" style="padding: 20px; margin-bottom: 15px;">
+                <strong>ICT Assessment for Software Developer</strong> — National University of Singapore (NUS-ISS)[cite: 1]
+            </div>
+            <div class="project-card" style="padding: 20px; margin-bottom: 15px;">
+                <strong>Master of Computer Applications (MCA)</strong> — S.V. University, India (GPA: 8.5/10)[cite: 1]
+            </div>
+            <div class="project-card" style="padding: 20px; margin-bottom: 15px;">
+                <strong>Certifications:</strong> ASP.NET Core (C# Corner) | Software Reliability Engineering (LinkedIn)[cite: 1]
             </div>
         </section>
 
         <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2026 Developer Portfolio. Built with standard HTML &amp; CSS.</p>
-        </div>
-    </main>
+        <footer>
+            <p>&copy; 2026 Hari Lakkakula. All Rights Reserved. Built with HTML5 &amp; CSS3.</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
