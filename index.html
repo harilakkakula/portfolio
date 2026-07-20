@@ -33,7 +33,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px; /* Prevents sticky nav from covering section headers */
+            scroll-padding-top: 80px;
         }
 
         body {
@@ -45,7 +45,6 @@
             color: var(--text-color);
         }
 
-        /* Sticky Navigation Bar */
         .nav-bar {
             position: sticky;
             top: 0;
@@ -95,10 +94,42 @@
             padding: 40px 20px;
         }
 
-        header {
+        /* Profile Layout */
+        .profile-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 30px;
             margin-bottom: 40px;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-img-container {
+            flex-shrink: 0;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 600px) {
+            .profile-wrapper {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+            }
+            .contact-info {
+                justify-content: center;
+            }
         }
 
         h1 {
@@ -123,6 +154,15 @@
             margin-bottom: 20px;
         }
 
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
         .summary {
             font-size: 1.05rem;
             text-align: justify;
@@ -140,7 +180,6 @@
             margin-bottom: 25px;
         }
 
-        /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -172,7 +211,6 @@
             margin-bottom: 6px;
         }
 
-        /* Project Cards */
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -242,7 +280,6 @@
 </head>
 <body>
 
-    <!-- Sticky Header Navigation -->
     <nav class="nav-bar">
         <div class="nav-container">
             <a href="#about" class="nav-logo">HL</a>
@@ -258,18 +295,26 @@
     <div class="container">
         
         <!-- Header / About Section -->
-        <header id="about">
-            <h1>Hari Lakkakula</h1>
-            <p class="title-badge">Senior Software Engineer</p>
-            <div class="contact-info">
-                <span>📍 Singapore</span>
-                <span>📧 harilakkakula28@gmail.com</span>
-                <span>📞 +65 90167145 / +91 8498951813</span>
-                <span>📜 EP Holder | NUS-ISS ICT Certified</span>
+        <header id="about" class="profile-wrapper">
+            <div class="profile-info">
+                <h1>Hari Lakkakula</h1>
+                <p class="title-badge">Senior Software Engineer</p>
+                <div class="contact-info">
+                    <span>📍 Singapore</span>
+                    <span>📧 harilakkakula28@gmail.com</span>
+                    <span>📞 +65 90167145 / +91 8498951813</span>
+                    <span>🐙 <a href="https://github.com" target="_blank">GitHub Profile</a></span>
+                    <span>📜 EP Holder | NUS-ISS ICT Certified</span>
+                </div>
+                <p class="summary">
+                    Senior Software Engineer with over 8 years of experience designing, developing, and delivering scalable full-stack software solutions across diverse domains, including financial services and public sector administration[cite: 1]. Expert in cloud integration, event-driven architectures, database optimization, and agile methodologies with a strong commitment to clean code practices and system availability[cite: 1].
+                </p>
             </div>
-            <p class="summary">
-                Senior Software Engineer with over 8 years of experience designing, developing, and delivering scalable full-stack software solutions across diverse domains, including financial services and public sector administration[cite: 1]. Expert in cloud integration, event-driven architectures, database optimization, and agile methodologies with a strong commitment to clean code practices and system availability[cite: 1].
-            </p>
+            <!-- Profile Picture Box -->
+            <div class="profile-img-container">
+                <!-- Replace 'avatar.jpg' with your photo's file path or image URL -->
+                <img src="avatar.jpg" alt="Hari Lakkakula" class="profile-img">
+            </div>
         </header>
 
         <!-- Technical Toolbox Section -->
